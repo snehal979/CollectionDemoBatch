@@ -10,7 +10,7 @@ namespace CollectionDemoBatch
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("hint 1.list 2.Stack 3.Dictionary 4.exit");
+                Console.WriteLine("hint 1.list 2.Stack 3.Dictionary 4.Queue 5.exit");
                 int num = Convert.ToInt16(Console.ReadLine());
                 switch (num)
                 {
@@ -24,6 +24,9 @@ namespace CollectionDemoBatch
                         DoDictionaryDemo();
                         break;
                     case 4:
+                        DoQueuesDemo();
+                        break;
+                    case 5:
                         Console.WriteLine("Exit");
                         flag=false;
                         break;
@@ -44,6 +47,12 @@ namespace CollectionDemoBatch
             {
                 Console.WriteLine(item);
             }
+            Console.WriteLine("-------------Using Enumerator--------------");
+            List<string>.Enumerator enumerator = list.GetEnumerator();
+            while (enumerator.MoveNext()) //bool condition return true
+            {
+                Console.WriteLine(enumerator.Current); // current position in queue list//It is get property
+            }
         }
         private static void DoStackDemo()
         {
@@ -61,6 +70,12 @@ namespace CollectionDemoBatch
             {
                 Console.WriteLine(item); ;
             }
+            Console.WriteLine("----------using enumrators-----------");
+            Stack<string>.Enumerator enumerator = stack.GetEnumerator();
+            while (enumerator.MoveNext()) //bool condition return true
+            {
+                Console.WriteLine(enumerator.Current); // current position in queue list//It is get property
+            }
         }
         public static void DoDictionaryDemo()
         {
@@ -68,13 +83,42 @@ namespace CollectionDemoBatch
             Dictionary<int, string> dictionay = new Dictionary<int, string>();
             dictionay.Add(1, "Snehal");
             dictionay.Add(2, "Mayur");
-            dictionay.Add(3, "vaibhav");
-            dictionay.Add(4, "raju");
-            dictionay.Add(5, "lata");
+            dictionay.Add(3, "Vaibhav");
+            dictionay.Add(4, "Raju");
+            dictionay.Add(5, "Lata");
             Console.WriteLine("Access of value using key "+dictionay[1]);//key value number
             foreach (var element in dictionay)
             {
                 Console.WriteLine("key :"+element.Key+" value :"+element.Value);
+            }
+            Console.WriteLine("----------using enumrators-----------");
+            Dictionary<int, string>.Enumerator enumerator = dictionay.GetEnumerator();
+            while (enumerator.MoveNext()) //bool condition return true
+            {
+                Console.WriteLine(enumerator.Current); // current position in queue list//It is get property
+            }
+        }
+        private static void DoQueuesDemo()
+        {
+            Console.WriteLine("Queue Collection");
+            Queue<string> queue = new Queue<string>();
+            queue.Enqueue("Snehal");
+            queue.Enqueue("Mayur");
+            queue.Enqueue("Vaibhav");
+            queue.Enqueue("Raju");
+            queue.Enqueue("Lata");
+            Console.WriteLine("element is peek is :"+queue.Peek()); //top element
+            Console.WriteLine("element is dequeue is :"+queue.Dequeue()); //Top delete element
+            foreach (var item in queue) //Display 
+            {
+                Console.WriteLine(item); ;
+            }
+            Console.WriteLine("----------using enumrators-----------");
+            //Enumerators uses -read data ,not modify data.
+            Queue<string>.Enumerator enumerator = queue.GetEnumerator();
+            while (enumerator.MoveNext()) //bool condition return true
+            {
+                Console.WriteLine(enumerator.Current); // current position in queue list//It is get property
             }
         }
     }
