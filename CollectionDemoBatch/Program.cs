@@ -10,7 +10,7 @@ namespace CollectionDemoBatch
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("hint 1.list 2.Stack 3.exit");
+                Console.WriteLine("hint 1.list 2.Stack 3.Dictionary 4.exit");
                 int num = Convert.ToInt16(Console.ReadLine());
                 switch (num)
                 {
@@ -21,6 +21,9 @@ namespace CollectionDemoBatch
                         DoStackDemo();
                         break;
                     case 3:
+                        DoDictionaryDemo();
+                        break;
+                    case 4:
                         Console.WriteLine("Exit");
                         flag=false;
                         break;
@@ -36,7 +39,7 @@ namespace CollectionDemoBatch
             list.Add("Vaibhav");
             list.Add("Raju");
             list.Add("Lata");
-
+            Console.WriteLine("Access of value using key "+list[1]);//Index number start with zero
             foreach (string item in list)
             {
                 Console.WriteLine(item);
@@ -57,6 +60,21 @@ namespace CollectionDemoBatch
             foreach (var item in stack)   //display
             {
                 Console.WriteLine(item); ;
+            }
+        }
+        public static void DoDictionaryDemo()
+        {
+            Console.WriteLine("Dictionary Collection");
+            Dictionary<int, string> dictionay = new Dictionary<int, string>();
+            dictionay.Add(1, "Snehal");
+            dictionay.Add(2, "Mayur");
+            dictionay.Add(3, "vaibhav");
+            dictionay.Add(4, "raju");
+            dictionay.Add(5, "lata");
+            Console.WriteLine("Access of value using key "+dictionay[1]);//key value number
+            foreach (var element in dictionay)
+            {
+                Console.WriteLine("key :"+element.Key+" value :"+element.Value);
             }
         }
     }
