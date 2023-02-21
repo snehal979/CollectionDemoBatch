@@ -10,7 +10,7 @@ namespace CollectionDemoBatch
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("hint 1.list 2.Stack 3.Dictionary 4.Queue 5.exit");
+                Console.WriteLine("hint 1.List 2.Stack 3.Dictionary 4.Queue 5.HashSet 6.Exit");
                 int num = Convert.ToInt16(Console.ReadLine());
                 switch (num)
                 {
@@ -27,6 +27,9 @@ namespace CollectionDemoBatch
                         DoQueuesDemo();
                         break;
                     case 5:
+                        DosetDemo();
+                        break;
+                    case 6:
                         Console.WriteLine("Exit");
                         flag=false;
                         break;
@@ -120,6 +123,27 @@ namespace CollectionDemoBatch
             {
                 Console.WriteLine(enumerator.Current); // current position in queue list//It is get property
             }
+        }
+        private static void DosetDemo()
+        {
+            Console.WriteLine("set demo");
+            HashSet<string> Set = new HashSet<string>();
+            Set.Add("Snehal");
+            Set.Add("Mayur");
+            Set.Add("Vaibhav");
+            Set.Add("Raju");
+            Set.Add("Lata");
+            foreach (var data in Set)
+            {
+                Console.WriteLine(data);
+            }
+            Console.WriteLine("----------using enumrators-----------");
+            HashSet<string>.Enumerator enumerator = Set.GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                Console.WriteLine(enumerator.Current);
+            }
+
         }
     }
 }
